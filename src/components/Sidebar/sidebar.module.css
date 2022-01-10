@@ -1,0 +1,8 @@
+.hovereffect :hover{
+    color: #6379F4;
+    border-left: 3px solid #6379F4;
+    cursor: pointer;
+}
+.noborder{
+    border: none!important;
+}

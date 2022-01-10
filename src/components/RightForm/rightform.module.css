@@ -1,0 +1,10 @@
+.bgprimary{
+    background-color: #FAFCFF;
+}
+.inp{
+    border-bottom: 1.5px solid rgba(169, 169, 169, 0.6) !important;
+    padding: 0 27px;
+    border: none;
+    background-color: #FAFCFF;
+    outline: none !important;
+}

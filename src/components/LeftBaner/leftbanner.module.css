@@ -1,0 +1,9 @@
+.leftbg{
+    background-position: relative;
+    background-size: cover;
+    background-image: url('../../img/bglogin.svg');
+    background-repeat: no-repeat;
+}
+.text-white{
+    color: white;
+}
