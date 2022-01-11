@@ -1,8 +1,8 @@
 import React from 'react'
 import '../../style.css'
 import grafik from '../../img/graphic.svg'
-import { AiOutlineArrowDown, AiOutlineArrowUp} from 'react-icons/ai'
-// import Button from '../base/Button/Button'
+import { AiOutlineArrowDown, AiOutlineArrowUp, AiOutlinePlus} from 'react-icons/ai'
+import Button from '../base/Button/Button'
 
 const HomeContent = () => {
     return (
@@ -14,8 +14,8 @@ const HomeContent = () => {
                     <div className="myphone">+62 813-9387-7946</div>
                 </div>
                 <div className="right-info d-flex flex-column align-self-center pe-4">
-                    <button className='mb-1'>topup</button>
-                    <button className='mt-1'>transfer</button>
+                    <Button className='btn btn-home text-white mb-2'><AiOutlinePlus/> Top Up</Button>
+                    <Button className='btn btn-home text-white mt-2'><AiOutlineArrowUp/> Transfer</Button>
                 </div>
             </div>
             <div className="grafik-info d-flex mt-3">
