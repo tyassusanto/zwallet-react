@@ -59,11 +59,7 @@ const RightForm = () => {
                         className={`${style.inp} mt-5`}
                         />
                         <p className='text-end pb-5 mt-3 mb-5'>Forgot Password ?</p>
-                        <Button
-                        onClick={handleClick}
-                        className='btn btn-primary'>
-                            {loading ? 'Loading...' : 'Login'}
-                        </Button>
+                        <Button onClick={handleClick} isLoading={loading} className='btn btn-primary'>Login</Button>
                         <p className='text-center pt-5'>Dont have an accounnt ?</p>
                     </div>
                 </div>
