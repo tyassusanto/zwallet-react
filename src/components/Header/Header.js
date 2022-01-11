@@ -6,7 +6,7 @@ import '../../style.css'
 
 const Header = () => {
     return (
-        <div className={`container-fluid ${style.headerstyle}`}>
+        <div className={`container-fluid bg-white ${style.headerstyle}`}>
             <div className='d-flex justify-content-between mx-5 px-5 py-3'>
                 <h1 className='mytextblue'>Zwallet</h1>
                 <div className="right-header d-flex">
