@@ -20,7 +20,7 @@ const RightForm = () => {
                         <Input placeholder='Enter your username' type='text'className={`${style.inp} mt-5`}/>
                         <Input placeholder='Enter your email' type='emal' className={`${style.inp} mt-5`}/>
                         <Input placeholder='Enter your password' type='password' className={`${style.inp} my-5`}/>
-                        <Button className='mt-5'>Signup</Button>
+                        <Button className='mt-5 btn btn-primary'>Signup</Button>
                         <p className='text-center pt-5'>Already have an account? Let’s Login</p>
                     </div>
                 </div>

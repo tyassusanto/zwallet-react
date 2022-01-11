@@ -9,7 +9,7 @@ const Login = () => {
             <div className="d-flex">
                 <LeftBanner/>
                 <RightForm>
-                    <Button className=''/>
+                    <Button className='btn btn-primary'/>
                 </RightForm>
             </div>
         </div>

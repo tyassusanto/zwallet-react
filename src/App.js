@@ -1,16 +1,22 @@
 import React from 'react'
-// import Home from './Pages/Home'
-// import Login from './Pages/Login'
+import { BrowserRouter, Routes, Route} from 'react-router-dom'
+import Home from './Pages/Home'
+import Login from './Pages/Login'
+import Page404 from './Pages/Page404'
 import Register from './Pages/Register'
 
 
 
 const App = () => {
   return (
-    <div className='container-fuild'>
-      {/* <Login/> */}
-      <Register/>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/register' element={<Register/>}/>
+        <Route path='/*' element={<Page404/>}/>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
