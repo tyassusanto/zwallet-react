@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Input from '../base/Input/Input'
 import Button from '../base/Button/Button'
 import style from './rightform.module.css'
-import axios from 'axios'
+// import axios from 'axios'
 
 
 const RightForm = () => {
@@ -11,28 +12,28 @@ const RightForm = () => {
         password : ''
     })
     const [loading, setLoading] = useState(false)
+    const navigate = useNavigate()
+
     const handleChange = (e) => {
         setForm({
             ...form,
             [e.target.name] : e.target.value
         })
     }
+
     const handleClick = () => {
         setLoading(true)
-        axios.post('https://zwallet-hello.herokuapp.com/users/login',
-        {
-            username: '1111', 
-            password: '1111'
-        })
-        .then((res)=>{
+        if (form.username === 'mail@gmail.com' && form.password === "1111"){
             setLoading(false)
-            console.log('masuk');
-        })
-        .catch((err)=>{
+            localStorage.setItem('auth',1)
+            navigate('/')
+            // console.log('masuk');
+        } else {
             setLoading(false)
-            console.log('gagal');
-        })
+            alert("your email or password is wrong")
+        }
     }
+
     return (
         <div className={`${style.bgprimary} row`}>
             <div className=" col p-5 my-5">
