@@ -16,7 +16,7 @@ const TransferAmountContent = () => {
                     <div className="amount-transfer d-flex w-100 justify-content-between">
                         <div className="trans-to">
                             <div className="name-receiver fw-bold">Samuel Suhi</div>
-                            <div className="phone-receiver">+62 813-8492-9994</div>
+                            <div className="phone-receiver">+62 813 8492 9994</div>
                         </div>
                     </div>
                 </div>
