@@ -1,13 +1,14 @@
 import React from 'react'
 import '../../style.css'
 import grafik from '../../img/graphic.svg'
+import userPhoto from '../../img/robert.svg'
 import { AiOutlineArrowDown, AiOutlineArrowUp, AiOutlinePlus} from 'react-icons/ai'
 import Button from '../base/Button/Button'
 
 const HomeContent = () => {
     return (
         <div className='d-flex flex-column container w-100 ms-3 me-5  '>
-            <div className="balance-info w-100 mybgblue borad d-flex justify-content-between">
+            <div className="balance-info w-100 shadow mybgblue borad d-flex justify-content-between">
                 <div className="left-info text-white m-4">
                     <div className="title">Balance</div>
                     <div className="myblance fs-1">Rp120.000</div>
@@ -34,10 +35,20 @@ const HomeContent = () => {
                     </div>
                     <div className="grafik-img"><img src={grafik} alt="" /></div>
                 </div>
-                <div className="history bg-secondary w-100 borad">
+                <div className="history bg-white shadow w-100 borad">
                     <div className="title-history d-flex justify-content-between p-4">
                         <div className="title fw-bold">Transaction History</div>
                         <div className="to-history">See All</div>
+                    </div>
+                    <div className="history-card d-flex mx-4">
+                        <div className="img me-3"><img src={userPhoto} alt="" /></div>
+                        <div className="amount-transfer d-flex w-100 justify-content-between">
+                            <div className="trans-to">
+                                <div className="name fw-bold">Samuel Suhi</div>
+                                <div className="needs">Transfer</div>
+                            </div>
+                            <div className="amount-trans text-success fw-bold align-self-center">+Rp50.000</div>
+                        </div>
                     </div>
                 </div>
             </div>
