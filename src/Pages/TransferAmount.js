@@ -2,21 +2,22 @@ import React from 'react'
 import Footer from '../components/Footer/Footer'
 import Header from '../components/Header/Header'
 import Sidebar from '../components/Sidebar/Sidebar'
-import TransferContent from '../components/TransferContent/TransferContent'
+import TransferAmountContent from '../components/TransferAmountContent/TransferAmountContent'
 
-const Transfer = () => {
+
+const TransferAmount = () => {
     return (
         <div>
             <div className=''>
-                <Header />
+                <Header/>
                 <section className='d-flex my-4'>
-                    <Sidebar />
-                    <TransferContent />
+                    <Sidebar/>
+                    <TransferAmountContent/>
                 </section>
-                <Footer />
+                <Footer/>
             </div>
         </div>
     )
 }
 
-export default Transfer
+export default TransferAmount
