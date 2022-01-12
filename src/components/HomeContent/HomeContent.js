@@ -7,7 +7,7 @@ import Button from '../base/Button/Button'
 
 const HomeContent = () => {
     return (
-        <div className='d-flex flex-column container w-100 ms-3 me-5  '>
+        <div className='d-flex flex-column container w-100 ms-3 me-5'>
             <div className="balance-info w-100 shadow mybgblue borad d-flex justify-content-between">
                 <div className="left-info text-white m-4">
                     <div className="title">Balance</div>
