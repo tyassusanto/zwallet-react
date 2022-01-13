@@ -7,6 +7,7 @@ import Page404 from './Pages/Page404'
 import Register from './Pages/Register'
 import Transfer from './Pages/Transfer'
 import TransferAmount from './Pages/TransferAmount'
+import TransferConfirmation from './Pages/TransferConfirmation'
 
 
 
@@ -21,6 +22,7 @@ const App = () => {
         <Route path='/*' element={<Page404/>}/>
         <Route path='/transfer' element={<Transfer/>}/>
         <Route path='/transfer/id' element={<TransferAmount/>}/>
+        <Route path='/transfer/confirmation' element={<TransferConfirmation/>}/>
       </Routes>
     </BrowserRouter>
   )

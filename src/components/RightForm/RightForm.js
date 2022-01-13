@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 import Input from '../base/Input/Input'
 import Button from '../base/Button/Button'
 import style from './rightform.module.css'
-// import axios from 'axios'
+import axios from 'axios'
 
 
 const RightForm = () => {
@@ -12,7 +12,7 @@ const RightForm = () => {
         password : ''
     })
     const [loading, setLoading] = useState(false)
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
     const handleChange = (e) => {
         setForm({
@@ -23,15 +23,30 @@ const RightForm = () => {
 
     const handleClick = () => {
         setLoading(true)
-        if (form.username === 'mail@gmail.com' && form.password === "1111"){
+        // console.log('Form : ',form);
+        // if (form.username === 'mail@gmail.com' && form.password === "1111"){
+        //     setLoading(false)
+        //     localStorage.setItem('auth',1)
+        //     navigate('/')
+        //     // console.log('masuk');
+        // } else {
+        //     setLoading(false)
+        //     alert("your email or password is wrong")
+        // }
+        axios.post('https://zeewallet.herokuapp.com/users/login', {
+            // username: form.username,
+            // password: form.password
+            username : 'asd',
+            password : 'asd'
+        })
+        .then((res) => {
             setLoading(false)
-            localStorage.setItem('auth',1)
-            navigate('/')
-            // console.log('masuk');
-        } else {
+            alert('masuk')
+        })
+        .catch((err) => {
             setLoading(false)
-            alert("your email or password is wrong")
-        }
+            alert('gagal')
+        })
     }
 
     return (
