@@ -5,6 +5,7 @@ import { MdPersonOutline } from 'react-icons/md'
 import { AiOutlinePlus, AiOutlineArrowUp } from 'react-icons/ai'
 // import style from './sidebar.module.css'
 import '../../style.css'
+import { Link } from 'react-router-dom'
 
 const Sidebar = () => {
     return (
@@ -15,22 +16,23 @@ const Sidebar = () => {
                         <div className="icon pe-3"><BiGridAlt/></div>
                         <div className="title">Dashboard</div>
                     </div>
-                    <div className="to-dashboard d-flex pt-3">
+                    <Link to={'/transfer'}>
+                    <div className="to-transfer d-flex pt-3">
                         <div className="icon pe-3"><AiOutlineArrowUp/></div>
                         <div className="title">Transfer</div>
                     </div>
-                    <div className="to-dashboard d-flex pt-3">
+                    </Link>
+                    <div className="to-topup d-flex pt-3">
                         <div className="icon pe-3"><AiOutlinePlus/></div>
                         <div className="title">Top Up</div>
                     </div>
-                    <div className="to-dashboard d-flex pt-3">
+                    <div className="to-profile d-flex pt-3">
                         <div className="icon pe-3"><MdPersonOutline/></div>
                         <div className="title">Profile</div>
                     </div>
                 </div>
                 <div className="bot-nav">
                     <div className={`to-out d-flex align-items-center mb-4`}>
-                        {/* <FiLogOut/> Logout */}
                         <div className="icon pe-3"><FiLogOut/></div>
                         <div className="title">Logout</div>
                     </div>

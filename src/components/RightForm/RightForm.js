@@ -21,10 +21,13 @@ const RightForm = () => {
             [e.target.name] : e.target.value
         })
     }
+    const handleSubmit = (e) => {
+        e.preventDefault()
+    }
 
     const handleClick = () => {
         console.log(form)
-        setLoading(true)
+        setLoading(false)
         // console.log('Form : ',form);
             axios.post(`${process.env.REACT_APP_API_BACKEND}/users/login`, form)
         .then((res) => {
@@ -56,7 +59,8 @@ const RightForm = () => {
                     With All Devices and All Platforms
                     With 30.000+ Users</h2>
                     <p className='mt-5'>Transfering money is eassier than ever, you can access Zwallet wherever you are. Desktop, laptop, mobile phone? we cover all of that for you!</p>
-                    <div className="formcontrol d-flex flex-column my-5">
+                    <div className="formcontrol">
+                        <form onSubmit={handleSubmit} className='w-100 d-flex flex-column my-5'>
                         <Input
                         name='username'
                         onChange={handleChange}
@@ -74,8 +78,9 @@ const RightForm = () => {
                         />
                         <p className='text-end pb-5 mt-3 mb-5'>Forgot Password ?</p>
                         {errorLogin && <p className='text-danger text-center fw-bold'>{errorLogin}</p>}
-                        <Button onClick={handleClick} isLoading={loading} className='btn btn-primary'>Login</Button>
+                        <Button type='submit' onClick={handleClick} isLoading={loading} className='btn btn-primary'>Login</Button>
                         <p className='text-center pt-5'>Dont have an accounnt ?</p>
+                        </form>
                     </div>
                 </div>
             </div>
