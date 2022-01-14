@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-// import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import Input from '../base/Input/Input'
 import Button from '../base/Button/Button'
 import style from './rightform.module.css'
@@ -12,7 +12,8 @@ const RightForm = () => {
         password : ''
     })
     const [loading, setLoading] = useState(false)
-    // const navigate = useNavigate()
+    const [errorLogin, setErrorLogin] = useState('')
+    const navigate = useNavigate()
 
     const handleChange = (e) => {
         setForm({
@@ -22,30 +23,28 @@ const RightForm = () => {
     }
 
     const handleClick = () => {
+        console.log(form)
         setLoading(true)
         // console.log('Form : ',form);
-        // if (form.username === 'mail@gmail.com' && form.password === "1111"){
-        //     setLoading(false)
-        //     localStorage.setItem('auth',1)
-        //     navigate('/')
-        //     // console.log('masuk');
-        // } else {
-        //     setLoading(false)
-        //     alert("your email or password is wrong")
-        // }
-        axios.post('https://zeewallet.herokuapp.com/users/login', {
-            // username: form.username,
-            // password: form.password
-            username : 'asd',
-            password : 'asd'
-        })
+            axios.post(`${process.env.REACT_APP_API_BACKEND}/users/login`, form)
         .then((res) => {
+            // console.log(res.data);
             setLoading(false)
-            alert('masuk')
+            alert(res.data.message)
+            localStorage.setItem('auth', 1)
+            navigate('/')
         })
         .catch((err) => {
+            console.log(err.response);
             setLoading(false)
-            alert('gagal')
+            // console.log(err.response.data.errorMessage)
+            // console.log(err.response.status)
+            if(err.response.status === 403 ){
+                // alert(err.response.data.errorMessage)
+                setErrorLogin(err.response.data.errorMessage)
+            }else{
+                alert('error')
+            }
         })
     }
 
@@ -63,7 +62,7 @@ const RightForm = () => {
                         onChange={handleChange}
                         value={form.username}
                         placeholder='Enter your username'
-                        type='email'
+                        type='text'
                         className={`${style.inp} mt-5`}
                         />
                         <Input name='password'
@@ -74,6 +73,7 @@ const RightForm = () => {
                         className={`${style.inp} mt-5`}
                         />
                         <p className='text-end pb-5 mt-3 mb-5'>Forgot Password ?</p>
+                        {errorLogin && <p className='text-danger text-center fw-bold'>{errorLogin}</p>}
                         <Button onClick={handleClick} isLoading={loading} className='btn btn-primary'>Login</Button>
                         <p className='text-center pt-5'>Dont have an accounnt ?</p>
                     </div>
