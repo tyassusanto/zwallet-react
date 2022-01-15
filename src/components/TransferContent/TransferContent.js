@@ -1,10 +1,29 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import Input from '../base/Input/Input'
 import styles from './transfercontent.module.css'
-import userPhoto from '../../img/robert.svg'
+import ReceiverCard from '../ReceiverCard/ReceiverCard'
+import axios from 'axios'
 
 const TransferContent = () => {
+    const [users, setUsers] = useState([])
+    const [isLoading, setIsloading] = useState(false)
+    useEffect(() => {
+        setIsloading(true)
+        axios.get(`${process.env.REACT_APP_API_BACKEND}/admin/allusers`)
+        .then((res)=>{
+            // console.log(res.data.data);
+            setIsloading(false)
+            const result = res.data.data
+            setUsers(result)
+        })
+        .catch((err) => {
+            setIsloading(false)
+            console.log(err.reponse);
+        })
+    },[])
+    console.log('users : ', users);
     return (
+
         <div className='bg-white borad shadow d-flex  flex-column container p-4 w-100 ms-3 me-5'>
             <div className="search-receiver w-100">
                 <h5>Search Receiver</h5>
@@ -12,15 +31,14 @@ const TransferContent = () => {
             </div>
             
             <div className="receiver-list my-3">
-                <div className="receiver-card borad p-3 shadow d-flex me-4">
-                    <div className="img me-3"><img src={userPhoto} alt="" /></div>
-                    <div className="amount-transfer d-flex w-100 justify-content-between">
-                        <div className="trans-to">
-                            <div className="name-receiver fw-bold">Samuel Suhi</div>
-                            <div className="phone-receiver">+62 813-8492-9994</div>
-                        </div>
-                    </div>
-                </div>
+                {isLoading && <p>Loading...</p> }
+                {users.map((user) => (
+                    <ReceiverCard
+                    name={user.name}
+                    phone={user.phone}
+                    photo={'https://squareoffs.com/assets/SOProfile-cb5798a284da490e620ff00069f852bc690799e2af53b40c7e2f03209dd8a3e5.svg'}
+                    />
+                ))}
             </div>
         </div>
     )
