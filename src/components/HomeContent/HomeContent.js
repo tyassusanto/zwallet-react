@@ -4,6 +4,7 @@ import grafik from '../../img/graphic.svg'
 import userPhoto from '../../img/robert.svg'
 import { AiOutlineArrowDown, AiOutlineArrowUp, AiOutlinePlus} from 'react-icons/ai'
 import Button from '../base/Button/Button'
+import { Link } from 'react-router-dom'
 
 const HomeContent = () => {
     return (
@@ -38,7 +39,7 @@ const HomeContent = () => {
                 <div className="history bg-white shadow w-100 borad">
                     <div className="title-history d-flex justify-content-between p-4">
                         <div className="title fw-bold">Transaction History</div>
-                        <div className="to-history">See All</div>
+                        <div className="to-history"><Link to={'/history'} style={{textDecoration : 'none'}}>See All</Link></div>
                     </div>
                     <div className="history-card d-flex mx-4">
                         <div className="img me-3"><img src={userPhoto} alt="" /></div>

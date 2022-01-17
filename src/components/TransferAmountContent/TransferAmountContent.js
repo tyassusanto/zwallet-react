@@ -3,7 +3,7 @@ import userPhoto from '../../img/robert.svg'
 import Button from '../base/Button/Button'
 import Input from '../base/Input/Input'
 import styles from './transferamountcontent.module.css'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 const TransferAmountContent = () => {
@@ -26,6 +26,10 @@ const TransferAmountContent = () => {
         })
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
+    const navigate = useNavigate()
+    const handleClick = () => {
+        navigate('/transfer/confirmation')
+    }
     // console.log('use params : ',params);
     return (
         <div className='bg-white borad shadow d-flex  flex-column container p-4 w-100 ms-3 me-5'>
@@ -56,7 +60,7 @@ const TransferAmountContent = () => {
                     </div>
                 </div>
             </div>
-            <Button className='btn btn-primary w-25 me-4 align-self-end'>Continue</Button>
+            <Button onClick={handleClick} className='btn btn-primary w-25 me-4 align-self-end'>Continue</Button>
         </div>
     )
 }
