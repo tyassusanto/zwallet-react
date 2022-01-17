@@ -9,15 +9,22 @@ import Transfer from './Pages/Transfer'
 import TransferAmount from './Pages/TransferAmount'
 import TransferConfirmation from './Pages/TransferConfirmation'
 import ReqAuth from './components/ReqAuth/ReqAuth'
-
-
+import Auth from './components/Auth/Auth'
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/login' element={<Login/>}/>
-        <Route path='/register' element={<Register/>}/>
+        <Route path='/login' element={
+        <Auth>
+          <Login/>
+        </Auth>
+        }/>
+        <Route path='/register' element={
+        <Auth>
+          <Register/>
+        </Auth>
+        }/>
           <Route path='/' element={
           <ReqAuth>
             <Home/>
