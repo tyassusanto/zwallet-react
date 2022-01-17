@@ -21,7 +21,7 @@ const App = () => {
         <Route path='/history' element={<History/>}/>
         <Route path='/*' element={<Page404/>}/>
         <Route path='/transfer' element={<Transfer/>}/>
-        <Route path='/transfer/id' element={<TransferAmount/>}/>
+        <Route path='/transfer/:id' element={<TransferAmount/>}/>
         <Route path='/transfer/confirmation' element={<TransferConfirmation/>}/>
       </Routes>
     </BrowserRouter>

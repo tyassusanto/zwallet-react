@@ -1,10 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import userPhoto from '../../img/robert.svg'
 import Button from '../base/Button/Button'
 import Input from '../base/Input/Input'
 import styles from './transferamountcontent.module.css'
+import { useParams } from 'react-router-dom'
+import axios from 'axios'
 
 const TransferAmountContent = () => {
+    const [user, setUser] = useState({
+        id : '',
+        name : '',
+        phone : '0000'
+    })
+    const {id} = useParams()
+    useEffect(() => {
+        axios.get(`${process.env.REACT_APP_API_BACKEND}/users/profile/${id}`)
+        .then((res) => {
+            const result = res.data.result
+            setUser(result)
+            // console.log('log res : ', res.data.result);
+            // console.log('log res.data : ', res.data);
+        })
+        .catch((err) => {
+            console.log(err.response);
+        })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[])
+    // console.log('use params : ',params);
     return (
         <div className='bg-white borad shadow d-flex  flex-column container p-4 w-100 ms-3 me-5'>
             <div className="search-receiver w-100">
@@ -15,8 +37,8 @@ const TransferAmountContent = () => {
                     <div className="img me-3"><img src={userPhoto} alt="" /></div>
                     <div className="amount-transfer d-flex w-100 justify-content-between">
                         <div className="trans-to">
-                            <div className="name-receiver fw-bold">Samuel Suhi</div>
-                            <div className="phone-receiver">+62 813 8492 9994</div>
+                            <div className="name-receiver fw-bold">{user.name}</div>
+                            <div className="phone-receiver">{user.phone}</div>
                         </div>
                     </div>
                 </div>

@@ -1,3 +1,6 @@
 .imgreceiver{
     width: 3rem;
 }
+.pointer{
+    cursor: pointer;
+}

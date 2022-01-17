@@ -3,11 +3,13 @@ import Input from '../base/Input/Input'
 import styles from './transfercontent.module.css'
 import ReceiverCard from '../ReceiverCard/ReceiverCard'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 // import { Link } from 'react-router-dom'
 
 const TransferContent = () => {
     const [users, setUsers] = useState([])
     const [isLoading, setIsloading] = useState(false)
+    const navigate = useNavigate()
     useEffect(() => {
         setIsloading(true)
         axios.get(`${process.env.REACT_APP_API_BACKEND}/admin/allusers`)
@@ -22,7 +24,7 @@ const TransferContent = () => {
             console.log(err.reponse);
         })
     },[])
-    console.log('users : ', users);
+    // console.log('users : ', users);
     return (
 
         <div className='bg-white borad shadow d-flex  flex-column container p-4 w-100 ms-3 me-5'>
@@ -34,14 +36,12 @@ const TransferContent = () => {
             <div className="receiver-list my-3">
                 {isLoading && <p>Loading...</p> }
                 {users.map((user) => (
-                    // <Link to={'/transfer/id'} onClick={''}>
                         <ReceiverCard
-                        
+                        onClick={()=>navigate(`/transfer/${user.id}`)}
                         name={user.name}
                         phone={user.phone}
                         photo={'https://squareoffs.com/assets/SOProfile-cb5798a284da490e620ff00069f852bc690799e2af53b40c7e2f03209dd8a3e5.svg'}
                         />
-                    // </Link>
                 ))}
             </div>
         </div>

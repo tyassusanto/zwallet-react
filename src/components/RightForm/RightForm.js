@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Input from '../base/Input/Input'
 import Button from '../base/Button/Button'
 import style from './rightform.module.css'
@@ -64,6 +64,7 @@ const RightForm = () => {
                     <div className="formcontrol">
                         <form onSubmit={handleSubmit} className='w-100 d-flex flex-column my-5'>
                         <Input
+                        autocomplete='off'
                         name='username'
                         onChange={handleChange}
                         value={form.username}
@@ -81,7 +82,7 @@ const RightForm = () => {
                         <p className='text-end pb-5 mt-3 mb-5'>Forgot Password ?</p>
                         {errorLogin && <p className='text-danger text-center fw-bold'>{errorLogin}</p>}
                         <Button type='submit' onClick={handleClick} isLoading={loading} className='btn btn-primary'>Login</Button>
-                        <p className='text-center pt-5'>Dont have an accounnt ?</p>
+                        <p className='text-center pt-5'>Dont have an accounnt ? <Link to={'/register'} style={{textDecoration:'none'}}>SignUp</Link> </p>
                         </form>
                     </div>
                 </div>

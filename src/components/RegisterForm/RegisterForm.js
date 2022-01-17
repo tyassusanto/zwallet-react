@@ -3,7 +3,7 @@ import Input from '../base/Input/Input'
 import Button from '../base/Button/Button'
 import style from './registerform.module.css'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 // import style from '../base/Button/button.module.css'
 // import { AiOutlineMail } from 'react-icons/ai'
 
@@ -28,8 +28,9 @@ const RightForm = () => {
         axios.post(`${process.env.REACT_APP_API_BACKEND}/users/register`, form)
         .then((res) => {
             setLoading(false)
-            console.log('response sukses register', res.data);
-            // navigate('/login')
+            // console.log('response sukses register', res.data);
+            alert('Success Register')
+            navigate('/login')
         })
         .catch((err) => {
             setLoading(false)
@@ -78,7 +79,7 @@ const RightForm = () => {
                             className={`${style.inp} my-5`} />
                             {errorRegister && <p className='text-danger text-center fw-bold'>{errorRegister}</p>}
                         <Button isLoading={loading} type='submit' className='mt-5 btn btn-primary'>Signup</Button>
-                        <p className='text-center pt-5'>Already have an account? Let’s Login</p>
+                        <p className='text-center pt-5'>Already have an account? Let’s <Link to={'/login'} style={{textDecoration:'none'}}>Login</Link></p>
                         </form>
                     </div>
                 </div>
