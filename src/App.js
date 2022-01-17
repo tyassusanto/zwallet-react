@@ -8,6 +8,7 @@ import Register from './Pages/Register'
 import Transfer from './Pages/Transfer'
 import TransferAmount from './Pages/TransferAmount'
 import TransferConfirmation from './Pages/TransferConfirmation'
+import ReqAuth from './components/ReqAuth/ReqAuth'
 
 
 
@@ -15,14 +16,34 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/register' element={<Register/>}/>
         <Route path='/login' element={<Login/>}/>
-        <Route path='/history' element={<History/>}/>
-        <Route path='/*' element={<Page404/>}/>
-        <Route path='/transfer' element={<Transfer/>}/>
-        <Route path='/transfer/:id' element={<TransferAmount/>}/>
-        <Route path='/transfer/confirmation' element={<TransferConfirmation/>}/>
+        <Route path='/register' element={<Register/>}/>
+          <Route path='/' element={
+          <ReqAuth>
+            <Home/>
+          </ReqAuth>
+          }/>
+          <Route path='/history' element={
+          <ReqAuth>
+            <History/>
+          </ReqAuth>
+          }/>
+          <Route path='/*' element={<Page404/>}/>
+          <Route path='/transfer' element={
+          <ReqAuth>
+            <Transfer/>
+          </ReqAuth>
+          }/>
+          <Route path='/transfer/:id' element={
+          <ReqAuth>
+            <TransferAmount/>
+          </ReqAuth>
+          }/>
+          <Route path='/transfer/confirmation' element={
+          <ReqAuth>
+            <TransferConfirmation/>
+          </ReqAuth>
+          }/>
       </Routes>
     </BrowserRouter>
   )
