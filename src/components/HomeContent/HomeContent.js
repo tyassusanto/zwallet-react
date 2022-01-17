@@ -7,13 +7,15 @@ import Button from '../base/Button/Button'
 import { Link } from 'react-router-dom'
 
 const HomeContent = () => {
+    const user = JSON.parse(localStorage.getItem('user'))
+    console.log(user);
     return (
         <div className='d-flex flex-column container w-100 ms-3 me-5'>
             <div className="balance-info w-100 shadow mybgblue borad d-flex justify-content-between">
                 <div className="left-info text-white m-4">
                     <div className="title">Balance</div>
-                    <div className="myblance fs-1">Rp120.000</div>
-                    <div className="myphone">+62 813-9387-7946</div>
+                    <div className="myblance fs-1">Rp 120.000</div>
+                    <div className="myphone">{user.phone}</div>
                 </div>
                 <div className="right-info d-flex flex-column align-self-center pe-4">
                     <Button className='btn btn-home text-white mb-2'><AiOutlinePlus/> Top Up</Button>
