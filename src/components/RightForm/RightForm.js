@@ -33,8 +33,10 @@ const RightForm = () => {
         .then((res) => {
             // console.log(res.data);
             setLoading(false)
+            console.log(res.data.data)
             alert(res.data.message)
             localStorage.setItem('auth', 1)
+            localStorage.setItem('user', JSON.stringify(res.data.data))
             navigate('/')
         })
         .catch((err) => {

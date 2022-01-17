@@ -5,7 +5,8 @@ import style from './header.module.css'
 import '../../style.css'
 
 const Header = () => {
-    // const usersProfile 
+    const user = JSON.parse(localStorage.getItem('user'))
+    // console.log(user);
     return (
         <div className={`container-fluid bg-white ${style.headerstyle}`}>
             <div className='d-flex justify-content-between mx-5 px-5 py-3'>
@@ -13,8 +14,8 @@ const Header = () => {
                 <div className="right-header d-flex">
                     <div className="photo-header"><img src={userPhoto} alt="" /></div>
                     <div className="name-phone-header px-3 text-left">
-                        <div className="name-user-profile">Richard Chandler</div>
-                        <div className="phone-user-profile">+62 8139 3877 7946</div>
+                        <div className="name-user-profile">{user.name}</div>
+                        <div className="phone-user-profile">{user.phone}</div>
                     </div>
                     <div className="ntf-icon align-self-center"><FiBell/></div>
                 </div>
