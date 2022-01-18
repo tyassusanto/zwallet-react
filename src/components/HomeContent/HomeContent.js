@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 
 const HomeContent = () => {
     const user = JSON.parse(localStorage.getItem('user'))
-    console.log(user);
+    // console.log(user);
     return (
         <div className='d-flex flex-column container w-100 ms-3 me-5'>
             <div className="balance-info w-100 shadow mybgblue borad d-flex justify-content-between">

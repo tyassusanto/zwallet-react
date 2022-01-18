@@ -32,8 +32,8 @@ const RightForm = () => {
             axios.post(`${process.env.REACT_APP_API_BACKEND}/users/login`, form)
         .then((res) => {
             // console.log(res.data);
+            // console.log(res.data.data)
             setLoading(false)
-            console.log(res.data.data)
             alert(res.data.message)
             localStorage.setItem('auth', 1)
             localStorage.setItem('user', JSON.stringify(res.data.data))
