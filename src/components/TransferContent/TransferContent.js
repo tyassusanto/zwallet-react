@@ -12,21 +12,7 @@ const TransferContent = () => {
     const navigate = useNavigate()
     const [searchParams, setSearchParams] = useSearchParams()
     const querySearch = searchParams.get('name')
-    // useEffect(() => {
-    //     setIsloading(true)
-    //     axios.get(`${process.env.REACT_APP_API_BACKEND}/admin/allusers`)
-    //     .then((res)=>{
-    //         // console.log(res.data.data);
-    //         setIsloading(false)
-    //         const result = res.data.data
-    //         setUsers(result)
-    //     })
-    //     .catch((err) => {
-    //         setIsloading(false)
-    //         console.log(err.reponse);
-    //     })
-    // },[])
-
+    console.log(users);
 useEffect(() => {
     if(querySearch){
         axios.get(`${process.env.REACT_APP_API_BACKEND}/admin/allusers?name=${querySearch}`)
@@ -58,7 +44,6 @@ useEffect(() => {
 
     const handleSearch = (e) => {
         // console.log(e.target.value);
-        // console.log(e.keyCode);
         if(e.keyCode === 13) {
             setSearchParams({name : e.target.value})
         }
@@ -70,7 +55,6 @@ useEffect(() => {
             <div className="search-receiver w-100">
                 <h5>Search Receiver</h5>
                 <Input
-                // onChange={handleSearch}
                 onKeyUp={handleSearch}
                 placeholder='Search receiver here'
                 className={`${styles.inpsearch} w-100 px-5 py-2`
